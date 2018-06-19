@@ -9,9 +9,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Google Maps with React - Udacity Nanodegree</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
         <Map />
-        </p>
+        </div>
       </div>
       
     );
