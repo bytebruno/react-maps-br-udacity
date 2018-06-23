@@ -1,29 +1,294 @@
-.App {
-  text-align: center;
+/* MAPA */
+#container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
-
-.App-header {
-  background-color: #222;
-  height: 35px;
-  padding: 10px;
-  color: white;
-}
-
-.App-header h1{
+#map-container {
+  height: 100%;
+  width: 100%;
   position: absolute;
-  left: 25%;
-  width: 50%;
+  right: 0;
+}
+#map {
+  height: 100%;
+  right: 0;
+}
+/* MAPA - FIM */
+
+/* MENU LATERAL DAS ACADEMIAS  */
+.list-view {
+  height: 80%;
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 25%;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  padding: 0 15px;
+}
+.list-view > h1 {
+  position: absolute;
+  top: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  color: #fff;
+  padding-bottom: 10px;
   text-align: center;
-  -webkit-transform: translateY( -50% );
-  -moz-transform: translateY( -50% );
-  transform: translateY( -50% );
+  width: calc(100% - 30px);
+  border-bottom: solid 1px grey;
+}
+.list-view > input {
+  position: inherit;
+  top: 85px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #000;
+  padding: 5px;
+  padding-left: 15px;
+  width: calc(100% - 50px);
+}
+.list-view > ul {
+  overflow: auto;
+  top: 110px;
+  bottom: 25px;
+  position: absolute;
+  list-style: none;
+  padding: 0 5px;
+  width: calc(100% - 40px);
 }
 
-.App-title {
-  font-size: 1.5em;
+/* styling ul's scrollbar */
+.list-view > ul::-webkit-scrollbar {
+  width: 5px;
+}
+.list-view > ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+.list-view > ul::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+.list-view > ul::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
-.App-intro {
-  margin-top: 0;
-  font-size: large;
+.list-view li {
+  font-size: 20px;
+  text-align: center;
 }
+.button {
+  padding: 5px 0;
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+.button:hover {
+  color: #c0bee0;
+  cursor: pointer;
+}
+.list-view > img {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  padding: 0 22.5%;
+  width: 55%;
+}
+.infoWindow h1 {
+  color: #232526;
+}
+
+/* BOTAO MENU LATERAL */
+.menu-button {
+  position: absolute;
+  right: -48px;
+  background-color: #2a2a2c;
+  border-radius: 0px;
+  border: none;
+  color: #fff;
+  height: 48px;
+  margin: 0px;
+  min-height: 48px;
+  min-width: 48px;
+  width: 48px;
+  align-self: center;
+  transition: all 0.3s;
+  padding: 0 8px 10px 10px;
+}
+.menu-button:hover {
+  outline: none;
+}
+.menu-button:focus {
+  outline: none;
+}
+.menu-button:active {
+  outline: none;
+}
+
+.menu-button.active .bar {
+  background-color: transparent;
+  transition: 0.2s;
+}
+
+.menu-button.active .bar:before {
+  transform: rotate(45deg) translate(4px, 9px);
+  transition: 0.3s;
+  width: 28px;
+  left: 1px;
+}
+
+.menu-button.active .bar:after {
+  transform: rotate(-45deg) translate(3px, -7px);
+  transition: 0.3s;
+  width: 28px;
+  left: 1px;
+}
+
+.bar {
+  background-color: #fff;
+  width: 24px;
+  height: 3px;
+  margin: 4px auto;
+  border-radius: 3px;
+  display: block;
+  position: absolute;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  background-color: #fff;
+  border-radius: 3px;
+  width: 24px;
+  height: 3px;
+  margin: 4px auto;
+  position: absolute;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+}
+
+.bar:before {
+  top: -12px;
+  left: 0px;
+}
+
+.bar:after {
+  bottom: -12px;
+  left: 0px;
+}
+/* BOTAO MENU LATERAL - FIM */
+
+/* MENU LATERAL DAS ACADEMIAS - FIM  */
+
+/* ESCONDER MOSTRAR MENU  */
+.hidden {
+  /* display:none;*/
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  transform: translate(-100%);
+}
+
+.shown {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  transform: translate(0);
+}
+
+/* ESCONDER MOSTRAR MENU - FIM  */
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1020px) {
+  .list-view > h1 {
+    font-size: 20px;
+  }
+  .list-view > input {
+    top: 70px;
+  }
+  .list-view > ul {
+    top: 95px;
+  }
+  .list-view > img {
+    padding: 0 15%;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 790px) {
+  .list-view > h1 {
+    font-size: 16px;
+  }
+  .list-view > input {
+    top: 60px;
+    font-size: 12px;
+  }
+  .list-view > ul {
+    top: 85px;
+  }
+  .list-view button {
+    font-size: 10px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 630px) {
+  .list-view > input {
+    font-size: 10px;
+    top: 75px;
+    padding: 5px;
+    width: calc(100% - 40px);
+  }
+  .list-view > ul {
+    top: 95px;
+    bottom: 15px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .list-view > h1 {
+    font-size: 30px;
+  }
+  .list-view > input {
+    font-size: 24px;
+  }
+  .list-view > ul {
+    top: 130px;
+    bottom: 50px;
+  }
+  .list-view button {
+    font-size: 18px;
+  }
+  .list-view > img {
+    padding: 0 5%;
+    width: 90%;
+  }
+}
+/* MEDIA QUERIES - FIM */
