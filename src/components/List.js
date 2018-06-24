@@ -7,15 +7,16 @@ class List extends Component {
     super(props);
     this.openMarker = this.openMarker.bind(this);
     this.state = {
-      query: ''
+      query: '',
+      width: ''
     };
   }
 
   // abrir o marker e infowindow corretos de acordo com o evento
   openMarker(e) {
-      this.props.markers.map(marker => {
+      this.props.markers.forEach(marker => {
         if (e.target.value === marker.name) {
-          this.props.infoWindows.map(infoWindow => {
+          this.props.infoWindows.forEach(infoWindow => {
             if (marker.name === infoWindow.name) {
               infoWindow.open(this.props.map, marker);
               if (marker.getAnimation() !== null) {
@@ -27,7 +28,7 @@ class List extends Component {
             }
           })
         }
-      })
+      });
   }
   render() {
     const {places, settingQuery} = this.props;
@@ -36,6 +37,7 @@ class List extends Component {
     places.sort(sortBy('name'));
     return (
       // mostro ou não o menu lateral de acordo com a prop listVisible
+      
       <div className={!this.props.listVisible ? 'list-view hidden' : 'list-view shown'}>
       {/* botao do menu lateral a prop listVisible é alterada através do click neste objeto*/}
       <MenuButton listVisible={this.props.listVisible} toggle={this.props.toggle}/>
